@@ -1,0 +1,23 @@
+machine:
+  services:
+    - docker
+
+dependencies:
+  override:
+    - docker version
+    - docker info
+    - docker build -t="blacklabelops/swarm-jdk7" -f ./java-jdk-7-oracle/Dockerfile java-jdk-7-oracle/
+    - docker build -t="blacklabelops/swarm-jdk8" -f ./java-jdk-8-oracle/Dockerfile java-jdk-8-oracle/
+    - docker build -t="blacklabelops/swarm-jdk6" -f ./java-jdk-6-oracle/Dockerfile java-jdk-6-oracle/
+
+test:
+  override:
+    - docker run blacklabelops/java-7-jdk java -version
+    - docker run blacklabelops/java-7-jdk gradle -v
+    - docker run blacklabelops/java-7-jdk mvn -version
+    - docker run blacklabelops/java-8-jdk java -version
+    - docker run blacklabelops/java-8-jdk gradle -v
+    - docker run blacklabelops/java-8-jdk mvn -version
+    - docker run blacklabelops/java-6-jdk java -version
+    - docker run blacklabelops/java-6-jdk gradle -v
+    - docker run blacklabelops/java-6-jdk mvn -version
