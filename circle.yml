@@ -12,12 +12,12 @@ dependencies:
 
 test:
   override:
-    - docker run blacklabelops/java-7-jdk java -version
-    - docker run blacklabelops/java-7-jdk gradle -v
-    - docker run blacklabelops/java-7-jdk mvn -version
-    - docker run blacklabelops/java-8-jdk java -version
-    - docker run blacklabelops/java-8-jdk gradle -v
-    - docker run blacklabelops/java-8-jdk mvn -version
-    - docker run blacklabelops/java-6-jdk java -version
-    - docker run blacklabelops/java-6-jdk gradle -v
-    - docker run blacklabelops/java-6-jdk mvn -version
+    - docker run blacklabelops/swarm-jdk7 java -version
+    - docker run blacklabelops/swarm-jdk7 gradle -v
+    - docker run blacklabelops/swarm-jdk7 mvn -version
+    - docker run blacklabelops/swarm-jdk8 java -version
+    - docker run blacklabelops/swarm-jdk8 gradle -v
+    - docker run blacklabelops/swarm-jdk8 mvn -version
+    - docker run blacklabelops/swarm-jdk6 java -version
+    - docker run blacklabelops/swarm-jdk6 gradle -v
+    - docker run blacklabelops/swarm-jdk6 mvn -version
