@@ -6,8 +6,8 @@ dependencies:
   override:
     - docker version
     - docker info
-    - docker build -t="blacklabelops/swarm-jdk7" -f ./java-jdk-7-oracle/Dockerfile java-jdk-7-oracle/
     - docker build -t="blacklabelops/swarm-jdk8" -f ./java-jdk-8-oracle/Dockerfile java-jdk-8-oracle/
+    - docker build -t="blacklabelops/swarm-jdk7" -f ./java-jdk-7-oracle/Dockerfile java-jdk-7-oracle/
     - docker build -t="blacklabelops/swarm-jdk6" -f ./java-jdk-6-oracle/Dockerfile java-jdk-6-oracle/
 
 test:
