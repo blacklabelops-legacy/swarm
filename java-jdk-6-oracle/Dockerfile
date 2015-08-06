@@ -1,4 +1,4 @@
-FROM blacklabelops/swarm-java-base
+FROM blacklabelops/swarm-jdk8
 MAINTAINER Steffen Bleul <blacklabelops@itbleul.de>
 
 # this envs are for maintaining java updates.
