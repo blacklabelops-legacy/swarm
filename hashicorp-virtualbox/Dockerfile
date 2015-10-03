@@ -29,7 +29,6 @@ RUN mkdir -p /opt/virtualbox && \
     yum install -y VirtualBox-${VIRTUALBOX_VERSION} && \
     yum clean all && rm -rf /var/cache/yum/*
 
-COPY imagescripts/docker-entrypoint.sh /opt/virtualbox/docker-entrypoint.sh
 WORKDIR /opt/jenkins-swarm
-ENTRYPOINT ["/opt/virtualbox/docker-entrypoint.sh"]
-CMD ["virtualbox"]
+ENTRYPOINT ["/opt/jenkins-swarm/docker-entrypoint.sh"]
+CMD ["swarm"]
