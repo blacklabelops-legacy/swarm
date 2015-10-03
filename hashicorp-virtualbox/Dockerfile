@@ -17,7 +17,7 @@ RUN wget --directory-prefix=/tmp https://dl.bintray.com/mitchellh/packer/packer_
     rpm -i /tmp/vagrant_${VAGRANT_VERSION}_x86_64.rpm
 
 # install Virtualbox
-ENV VIRTUALBOX_VERSION=5.0
+ENV VIRTUALBOX_VERSION=5.0.6_103037_el7-1
 RUN mkdir -p /opt/virtualbox && \
     cd /etc/yum.repos.d/ && \
     wget http://download.virtualbox.org/virtualbox/rpm/rhel/virtualbox.repo && \
@@ -26,7 +26,7 @@ RUN mkdir -p /opt/virtualbox && \
     dkms \
     kernel-devel && \
     yum -y groupinstall "Development Tools" && \
-    yum install -y VirtualBox-${VIRTUALBOX_VERSION} && \
+    yum install -y VirtualBox-5.0-${VIRTUALBOX_VERSION} && \
     yum clean all && rm -rf /var/cache/yum/*
 
 WORKDIR /opt/jenkins-swarm
