@@ -1,6 +1,9 @@
 FROM blacklabelops/jenkins-swarm
 MAINTAINER Steffen Bleul <blacklabelops@itbleul.de>
 
+# Need root to build image
+USER root
+
 # install dev tools
 RUN yum install -y \
     unzip && \
@@ -24,6 +27,5 @@ RUN wget --no-check-certificate --directory-prefix=/tmp \
     cd /usr/local &&  ln -s gradle-${GRADLE_VERSION} gradle && \
     alternatives --install /usr/bin/gradle gradle /usr/local/gradle/bin/gradle 100
 
-WORKDIR /opt/jenkins-swarm
-ENTRYPOINT ["/opt/jenkins-swarm/docker-entrypoint.sh"]
-CMD ["swarm"]
+# Switch back to user jenkins
+USER $CONTAINER_UID

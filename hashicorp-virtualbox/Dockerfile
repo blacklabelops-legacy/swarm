@@ -1,6 +1,9 @@
 FROM blacklabelops/swarm-jdk8
 MAINTAINER Steffen Bleul <sbl@blacklabelops.com>
 
+# Need root to build image
+USER root
+
 # install dev tools
 RUN yum install -y \
     unzip \
@@ -29,6 +32,5 @@ RUN mkdir -p /opt/virtualbox && \
     yum install -y VirtualBox-5.0-${VIRTUALBOX_VERSION} && \
     yum clean all && rm -rf /var/cache/yum/*
 
-WORKDIR /opt/jenkins-swarm
-ENTRYPOINT ["/opt/jenkins-swarm/docker-entrypoint.sh"]
-CMD ["swarm"]
+# Switch back to user jenkins
+USER $CONTAINER_UID

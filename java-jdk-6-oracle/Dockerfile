@@ -1,6 +1,9 @@
 FROM blacklabelops/swarm-jdk8
 MAINTAINER Steffen Bleul <blacklabelops@itbleul.de>
 
+# Need root to build image
+USER root
+
 # this envs are for maintaining java updates.
 ENV JAVA_MAJOR_VERSION=6
 ENV JAVA_UPDATE_VERSION=45
@@ -21,6 +24,5 @@ RUN wget --no-check-certificate --directory-prefix=/tmp \
          alternatives --install /usr/bin/java java /opt/java/jdk${JAVA_VERSION}/bin/java 100 && \
          rm -rf /tmp/* && rm -rf /var/log/*
 
-WORKDIR /opt/jenkins-swarm
-ENTRYPOINT ["/opt/jenkins-swarm/docker-entrypoint.sh"]
-CMD ["swarm"]
+# Switch back to user jenkins
+USER $CONTAINER_UID

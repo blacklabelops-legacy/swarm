@@ -1,5 +1,7 @@
 Jenkins Swarm Slaves.
 
+Good news! These containers have rooted out root! Safely running inside userspace!
+
 Perfectly working with the following container: [blacklabelops/jenkins](https://github.com/blacklabelops/jenkins)
 
 Builds the following swarm slaves:
