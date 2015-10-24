@@ -7,6 +7,7 @@ Perfectly working with the following container: [blacklabelops/jenkins](https://
 Builds the following swarm slaves:
 
 * [blacklabelops/hashicorp-virtualbox](https://github.com/blacklabelops/swarm/tree/master/hashicorp-virtualbox)
+* [blacklabelops/swarm-aws](https://github.com/blacklabelops/swarm/tree/master/amazonws)
 * blacklabelops/swarm-jdk6
 * blacklabelops/swarm-jdk7
 * blacklabelops/swarm-jdk8
