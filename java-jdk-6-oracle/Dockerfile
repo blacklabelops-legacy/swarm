@@ -1,5 +1,5 @@
 FROM blacklabelops/swarm-jdk8
-MAINTAINER Steffen Bleul <blacklabelops@itbleul.de>
+MAINTAINER Steffen Bleul <sbl@blacklabelops.com>
 
 # Need root to build image
 USER root
