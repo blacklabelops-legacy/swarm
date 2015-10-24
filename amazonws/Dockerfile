@@ -5,7 +5,7 @@ MAINTAINER Steffen Bleul <sbl@blacklabelops.com>
 USER root
 
 # install web tools
-RUN yum install -y epel-release &&
+RUN yum install -y epel-release && \
     yum install -y \
     unzip \
     zip \
