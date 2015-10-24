@@ -20,6 +20,7 @@ Now start the build slave!
 $ docker run  \
     -e "AWS_ACCESS_KEY_ID=YOUR_AWS_ACCESS_KEY" \
     -e "AWS_SECRET_ACCESS_KEY=YOUR_SECRET_ACCESS_KEY" \
+    -e "AWS_DEFAULT_REGION=eu-central-1" \
     --link jenkins_jenkins_1:jenkins \
     blacklabelops/aws
 ~~~~
