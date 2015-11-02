@@ -13,11 +13,14 @@ RUN yum install -y \
 # install Vagrant and Packer
 ENV PACKER_VERSION=0.8.6
 ENV VAGRANT_VERSION=1.7.4
+ENV OTTO_VERSION=0.1.2
 RUN wget --directory-prefix=/tmp https://dl.bintray.com/mitchellh/packer/packer_${PACKER_VERSION}_linux_amd64.zip && \
     unzip /tmp/packer_${PACKER_VERSION}_linux_amd64.zip -d /usr/local/bin && \
     rm -f /tmp/packer_${PACKER_VERSION}_linux_amd64.zip && \
     wget --directory-prefix=/tmp https://dl.bintray.com/mitchellh/vagrant/vagrant_${VAGRANT_VERSION}_x86_64.rpm && \
-    rpm -i /tmp/vagrant_${VAGRANT_VERSION}_x86_64.rpm
+    rpm -i /tmp/vagrant_${VAGRANT_VERSION}_x86_64.rpm && \
+    wget --directory-prefix=/tmp https://releases.hashicorp.com/otto/${OTTO_VERSION}/otto_${OTTO_VERSION}_linux_amd64.zip && \
+    unzip /tmp/otto_${OTTO_VERSION}_linux_amd64.zip -d /usr/local/bin
 
 # install Virtualbox
 ENV VIRTUALBOX_VERSION=5.0.6_103037_el7-1

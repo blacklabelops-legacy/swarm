@@ -1,4 +1,4 @@
-Container stuffed with Hashicorp Vagrant and Packer with Virtualbox!
+Container stuffed with Hashicorp Otto, Vagrant and Packer with Virtualbox!
 
 This slave can be used to build Vagrant-Virtualbox boxes in several independent containers on the same host.
 
@@ -8,6 +8,13 @@ Requirements:
   * Host machine must have working installation of Virtualbox.
   * Host machine must have same Virtualbox version.
   * Host machine must have same kernel version as container.
+
+Software:
+
+  * Virtualbox
+  * Otto
+  * Vagrant
+  * Packer
 
 # Make It Short!
 
