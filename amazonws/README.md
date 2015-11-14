@@ -22,10 +22,16 @@ $ docker run  \
     -e "AWS_SECRET_ACCESS_KEY=YOUR_SECRET_ACCESS_KEY" \
     -e "AWS_DEFAULT_REGION=eu-central-1" \
     --link jenkins_jenkins_1:jenkins \
-    blacklabelops/aws
+    blacklabelops/swarm-aws
 ~~~~
 
 > CLI commands will be available when you specify the correct aws credentials.
+
+# Configuring ECS-Cli
+
+~~~~
+$ ecs-cli configure --region $AWS_DEFAULT_REGION --access-key $AWS_ACCESS_KEY_ID  --secret-key $AWS_SECRET_ACCESS_KEY --cluster cluster_name
+~~~~
 
 # References
 

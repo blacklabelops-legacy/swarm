@@ -20,7 +20,9 @@ RUN yum install -y epel-release && \
 ENV AWS_ACCESS_KEY_ID=
 ENV AWS_SECRET_ACCESS_KEY=
 ENV AWS_DEFAULT_REGION=
-RUN pip install awscli
+RUN pip install awscli && \
+    curl -o /usr/local/bin/ecs-cli https://s3.amazonaws.com/amazon-ecs-cli/ecs-cli-linux-amd64-latest && \
+    chmod +x /usr/local/bin/ecs-cli
 
 # Switch back to user jenkins
 USER $CONTAINER_UID
