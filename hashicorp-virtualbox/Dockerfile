@@ -1,4 +1,4 @@
-FROM blacklabelops/swarm-jdk8
+FROM blacklabelops/swarm-jdk8:8.66.17
 MAINTAINER Steffen Bleul <sbl@blacklabelops.com>
 
 # Need root to build image
@@ -12,7 +12,7 @@ RUN yum install -y \
 
 # install Vagrant and Packer
 ENV PACKER_VERSION=0.8.6
-ENV VAGRANT_VERSION=1.7.4
+ENV VAGRANT_VERSION=1.8.1
 ENV OTTO_VERSION=0.1.2
 RUN wget --directory-prefix=/tmp https://dl.bintray.com/mitchellh/packer/packer_${PACKER_VERSION}_linux_amd64.zip && \
     unzip /tmp/packer_${PACKER_VERSION}_linux_amd64.zip -d /usr/local/bin && \
@@ -23,7 +23,7 @@ RUN wget --directory-prefix=/tmp https://dl.bintray.com/mitchellh/packer/packer_
     unzip /tmp/otto_${OTTO_VERSION}_linux_amd64.zip -d /usr/local/bin
 
 # install Virtualbox
-ENV VIRTUALBOX_VERSION=5.0.6_103037_el7-1
+ENV VIRTUALBOX_VERSION=5.0.12_104815_el7-1
 RUN mkdir -p /opt/virtualbox && \
     cd /etc/yum.repos.d/ && \
     wget http://download.virtualbox.org/virtualbox/rpm/rhel/virtualbox.repo && \
