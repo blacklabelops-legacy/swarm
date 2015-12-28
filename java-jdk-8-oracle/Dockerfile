@@ -1,4 +1,4 @@
-FROM blacklabelops/jenkins-swarm
+FROM blacklabelops/jenkins-swarm:2.0
 MAINTAINER Steffen Bleul <sbl@blacklabelops.com>
 
 # Need root to build image
@@ -10,7 +10,7 @@ RUN yum install -y \
     yum clean all && rm -rf /var/cache/yum/*
 
 # install maven
-ENV MAVEN_VERSION=3.3.3
+ENV MAVEN_VERSION=3.3.9
 ENV M2_HOME=/usr/local/maven
 RUN wget --directory-prefix=/tmp \
     http://mirror.synyx.de/apache/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz && \
@@ -19,7 +19,7 @@ RUN wget --directory-prefix=/tmp \
     alternatives --install /usr/bin/mvn mvn /usr/local/maven/bin/mvn 100
 
 # install gradle
-ENV GRADLE_VERSION=2.5
+ENV GRADLE_VERSION=2.10
 ENV GRADLE_HOME=/usr/local/gradle
 RUN wget --no-check-certificate --directory-prefix=/tmp \
     https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip && \
