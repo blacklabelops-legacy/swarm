@@ -1,4 +1,4 @@
-FROM blacklabelops/jenkins-swarm:2.0
+FROM blacklabelops/jenkins-swarm
 MAINTAINER Steffen Bleul <sbl@blacklabelops.com>
 
 # Need root to build image
