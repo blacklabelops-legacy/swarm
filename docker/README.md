@@ -17,8 +17,10 @@ $ docker run -d -p 8090:8080 --name jenkins blacklabelops/jenkins
 Then start a Docker demon container!
 
 ~~~~
-$ docker run -d --privileged --name docker_demon docker
+$ docker run -d --privileged --name docker_demon docker:1.9.1-dind
 ~~~~
+
+> The swarm-slave does not run a docker demon itself! We use the official Docker image to create one for all slaves.
 
 Now start the build slave!
 
