@@ -13,7 +13,7 @@ RUN yum install -y \
 # install Vagrant and Packer
 ENV PACKER_VERSION=0.8.6
 ENV VAGRANT_VERSION=1.8.1
-ENV OTTO_VERSION=0.1.2
+ENV OTTO_VERSION=0.2.0
 RUN wget --directory-prefix=/tmp https://dl.bintray.com/mitchellh/packer/packer_${PACKER_VERSION}_linux_amd64.zip && \
     unzip /tmp/packer_${PACKER_VERSION}_linux_amd64.zip -d /usr/local/bin && \
     rm -f /tmp/packer_${PACKER_VERSION}_linux_amd64.zip && \
