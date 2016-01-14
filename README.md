@@ -1,4 +1,4 @@
-Jenkins Swarm Slaves.
+# Jenkins Swarm Slaves.
 
 Leave a message and ask questions on Hipchat: [blacklabelops/hipchat](https://www.hipchat.com/geogBFvEM)
 
@@ -48,7 +48,7 @@ All containing:
 * Latest Maven Build system. [Maven Homepage](https://maven.apache.org/)
 * Latest Gradle Build System. [Gradle Homepage](https://gradle.org/)
 
-## Vagrant
+# Vagrant
 
 Vagrant is fabulous tool for pulling and spinning up virtual machines like docker with containers. I can configure my development and test environment and simply pull it online. And so can you! Install Vagrant and Virtualbox and spin it up. Change into the project folder and build the project on the spot!
 
@@ -68,7 +68,7 @@ First install:
 * [Vagrant](https://www.vagrantup.com/)
 * [Virtualbox](https://www.virtualbox.org/)
 
-## References
+# References
 
 * [Jenkins Homepage](http://jenkins-ci.org/)
 * [Jenkins Swarm Plugin Homepage](https://wiki.jenkins-ci.org/display/JENKINS/Swarm+Plugin)
