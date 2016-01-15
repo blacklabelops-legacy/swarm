@@ -33,6 +33,49 @@ $ docker run -d \
 
 > CLI commands will be available.
 
+# Docker Login
+
+The slave can be started and login in a remote repository. The default is the dockerhub registry.
+
+With the environment variables:
+
+* DOCKER_REGISTRY_USER: Your account username for the registry. (mandatory)
+* DOCKER_REGISTRY_EMAIL: Your account email for the registry. (mandatory)
+* DOCKER_REGISTRY_PASSWORD: Your account password for the registry. (mandatory)
+
+Example:
+
+~~~~
+$ docker run -d \
+    --link jenkins:jenkins \
+    --link docker_demon:docker \
+    -e "DOCKER_REGISTRY_USER=**Your_Account_Username**" \
+    -e "DOCKER_REGISTRY_EMAIL=**Your_Account_Email**" \
+    -e "DOCKER_REGISTRY_PASSWORD=**Your_Account_Password**" \
+    blacklabelops/swarm-docker
+~~~~
+
+> Will login the user to Dockerhub and save the credentials locally for repository pulls and pushes.
+
+# Changing the Docker registry
+
+The default for this container is dockerhub.io. If you want to use another remote repository, e.g. quay.io then Your_Account_Email can specify the repository with the environment variable DOCKER_REGISTRY.
+
+Example:
+
+~~~~
+$ docker run -d \
+    --link jenkins:jenkins \
+    --link docker_demon:docker \
+    -e "DOCKER_REGISTRY=quay.io"
+    -e "DOCKER_REGISTRY_USER=**Your_Account_Username**" \
+    -e "DOCKER_REGISTRY_EMAIL=**Your_Account_Email**" \
+    -e "DOCKER_REGISTRY_PASSWORD=**Your_Account_Password**" \
+    blacklabelops/swarm-docker
+~~~~
+
+> Will login to quay.io with the specified credentials.
+
 # References
 
 * [Docker Homepage](https://www.docker.com/)
