@@ -25,4 +25,4 @@ test:
     - docker run blacklabelops/swarm-jdk6 gradle -v
     - docker run blacklabelops/swarm-aws echo Hello World
     - docker run blacklabelops/hashicorp-virtualbox echo Hello World
-    - docker run blacklabelops/swarm-docker docker version
+    - docker run blacklabelops/swarm-docker echo Hello World
