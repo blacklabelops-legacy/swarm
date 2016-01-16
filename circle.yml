@@ -9,6 +9,9 @@ dependencies:
     - docker build -t="blacklabelops/swarm-jdk8" -f ./java-jdk-8-oracle/Dockerfile java-jdk-8-oracle/
     - docker build -t="blacklabelops/swarm-jdk7" -f ./java-jdk-7-oracle/Dockerfile java-jdk-7-oracle/
     - docker build -t="blacklabelops/swarm-jdk6" -f ./java-jdk-6-oracle/Dockerfile java-jdk-6-oracle/
+    - docker build -t="blacklabelops/swarm-aws" -f ./amazonws/Dockerfile amazonws/
+    - docker build -t="blacklabelops/hashicorp-virtualbox" -f ./hashicorp-virtualbox/Dockerfile hashicorp-virtualbox/
+    - docker build -t="blacklabelops/swarm-docker" -f ./docker/Dockerfile docker/
 
 test:
   override:
@@ -20,3 +23,6 @@ test:
     - docker run blacklabelops/swarm-jdk8 mvn -version
     - docker run blacklabelops/swarm-jdk6 java -version
     - docker run blacklabelops/swarm-jdk6 gradle -v
+    - docker run blacklabelops/swarm-aws echo Hello World
+    - docker run blacklabelops/hashicorp-virtualbox echo Hello World
+    - docker run blacklabelops/swarm-docker docker version
