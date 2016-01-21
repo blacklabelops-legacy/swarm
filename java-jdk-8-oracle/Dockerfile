@@ -21,7 +21,7 @@ RUN wget --directory-prefix=/tmp \
 # install gradle
 ENV GRADLE_VERSION=2.10
 ENV GRADLE_HOME=/usr/local/gradle
-RUN wget --no-check-certificate --directory-prefix=/tmp \
+RUN wget --directory-prefix=/tmp \
     https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip && \
     unzip /tmp/gradle-${GRADLE_VERSION}-bin.zip -d /usr/local && rm -rf /tmp/* && \
     cd /usr/local &&  ln -s gradle-${GRADLE_VERSION} gradle && \
