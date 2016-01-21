@@ -19,7 +19,7 @@ RUN yum install -y epel-release && \
     python-pip \
     wget && \
     yum clean all && rm -rf /var/cache/yum/* && \
-    pip install --upgrade pip
+    pip install --index-url=http://pypi.python.org/simple/ --trusted-host pypi.python.org --upgrade pip
 
 # install Docker cli
 ENV DOCKER_VERSION 1.9.1
