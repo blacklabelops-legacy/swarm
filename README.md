@@ -8,9 +8,9 @@ Perfectly working with the following container: [blacklabelops/jenkins](https://
 
 Builds the following swarm slaves:
 
-* [blacklabelops/swarm-docker](https://github.com/blacklabelops/swarm/tree/master/docker)
-* [blacklabelops/hashicorp-virtualbox](https://github.com/blacklabelops/swarm/tree/master/hashicorp-virtualbox)
-* [blacklabelops/swarm-aws](https://github.com/blacklabelops/swarm/tree/master/amazonws)
+* Documentation: [blacklabelops/swarm-docker](https://github.com/blacklabelops/swarm/tree/master/docker)
+* Documentation: [blacklabelops/hashicorp-virtualbox](https://github.com/blacklabelops/swarm/tree/master/hashicorp-virtualbox)
+* Documentation: [blacklabelops/swarm-aws](https://github.com/blacklabelops/swarm/tree/master/amazonws)
 * blacklabelops/swarm-jdk6
 * blacklabelops/swarm-jdk7
 * blacklabelops/swarm-jdk8
@@ -24,7 +24,7 @@ This project contains jenkins swarm slaves for Jenkins CI. Start a master and co
 First start a master!
 
 ~~~~
-$ docker run -d -p 8090:8080 --name jenkins_jenkins_1 blacklabelops/jenkins
+$ docker run -d -p 8090:8080 --name jenkins blacklabelops/jenkins
 ~~~~
 
 > This will pull the my jenkins container ready with swarm plugin and ready-to-use!
@@ -32,9 +32,9 @@ $ docker run -d -p 8090:8080 --name jenkins_jenkins_1 blacklabelops/jenkins
 Now swarm the place!
 
 ~~~~
-$ docker run -d --link jenkins_jenkins_1:jenkins blacklabelops/swarm-jdk6
-$ docker run -d --link jenkins_jenkins_1:jenkins blacklabelops/swarm-jdk7
-$ docker run -d --link jenkins_jenkins_1:jenkins blacklabelops/swarm-jdk8
+$ docker run -d --link jenkins:jenkins blacklabelops/swarm-jdk6
+$ docker run -d --link jenkins:jenkins blacklabelops/swarm-jdk7
+$ docker run -d --link jenkins:jenkins blacklabelops/swarm-jdk8
 ~~~~
 
 > This will start 3 Java JDK build slaves with JDK6/7/8, each with 4 build processors! This setup will
