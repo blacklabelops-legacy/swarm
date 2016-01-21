@@ -4,8 +4,9 @@ MAINTAINER Steffen Bleul <sbl@blacklabelops.com>
 # Need root to build image
 USER root
 
-# Add docker.com ssl certificate
+# Add ssl certificates
 COPY www.docker.com.crt /etc/pki/ca-trust/source/anchors/
+COPY www.python.org.crt /etc/pki/ca-trust/source/anchors/
 
 # install web tools
 RUN yum install -y epel-release && \
