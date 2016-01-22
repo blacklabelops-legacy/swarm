@@ -1,6 +1,10 @@
 #!/bin/bash
 set -o errexit
 
+if [ -n "${SWARM_ENV_FILE}" ]; then
+  source ${SWARM_ENV_FILE}
+fi
+
 docker_remote_registry=""
 
 if [ -n "${DOCKER_REGISTRY}" ]; then
