@@ -29,6 +29,8 @@ RUN curl -fSL "https://get.docker.com/builds/Linux/x86_64/docker-$DOCKER_VERSION
     chmod +x /usr/local/bin/docker && \
     pip install --cert /home/jenkins/www.digicert.com.pem docker-compose
 
+# Switch back to user jenkins
+USER $CONTAINER_UID
 COPY docker-entrypoint.sh /home/jenkins/entrypoint.sh
 ENTRYPOINT ["/home/jenkins/entrypoint.sh"]
 CMD ["swarm"]
