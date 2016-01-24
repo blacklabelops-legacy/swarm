@@ -1,9 +1,5 @@
 # Jenkins Slave Container with Docker
 
-Deprecated: According to this article [Docker-in-Docker for your CI or testing environment? Think twice.](https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/) by Jérôme Petazzoni you will run into several problems when you integrate Docker into your CI-System with this image. I agree, because I ran into several performance issues using it.
-
-Solution: Use my image that is reusing the socket of your Docker host: [blacklabelops/swarm-dockerhost](https://github.com/blacklabelops/swarm/tree/master/dockerhost)
-
 Check this project on how to configure a swarm slave: [blacklabelops/jenkins-swarm](https://github.com/blacklabelops/jenkins-swarm)
 
 # Make It Short!
@@ -18,21 +14,13 @@ $ docker run -d -p 8090:8080 --name jenkins blacklabelops/jenkins
 
 > This will pull the my jenkins container ready with swarm plugin and ready-to-use!
 
-Then start a Docker demon container!
-
-~~~~
-$ docker run -d --privileged --name docker_demon docker:1.9.1-dind
-~~~~
-
-> The swarm-slave does not run a docker demon itself! We use the official Docker image to create one for all slaves.
-
 Now start the build slave!
 
 ~~~~
 $ docker run -d \
+    -v /var/run/docker.sock:/var/run/docker.sock \
     --link jenkins:jenkins \
-    --link docker_demon:docker \
-    blacklabelops/swarm-docker
+    blacklabelops/swarm-dockerhost
 ~~~~
 
 > CLI commands will be available.
@@ -52,11 +40,11 @@ Example:
 ~~~~
 $ docker run -d \
     --link jenkins:jenkins \
-    --link docker_demon:docker \
+    -v /var/run/docker.sock:/var/run/docker.sock \
     -e "DOCKER_REGISTRY_USER=**Your_Account_Username**" \
     -e "DOCKER_REGISTRY_EMAIL=**Your_Account_Email**" \
     -e "DOCKER_REGISTRY_PASSWORD=**Your_Account_Password**" \
-    blacklabelops/swarm-docker
+    blacklabelops/swarm-dockerhost
 ~~~~
 
 > Will login the user to Dockerhub and save the credentials locally for repository pulls and pushes.
@@ -70,12 +58,12 @@ Example:
 ~~~~
 $ docker run -d \
     --link jenkins:jenkins \
-    --link docker_demon:docker \
+    -v /var/run/docker.sock:/var/run/docker.sock \
     -e "DOCKER_REGISTRY=quay.io"
     -e "DOCKER_REGISTRY_USER=**Your_Account_Username**" \
     -e "DOCKER_REGISTRY_EMAIL=**Your_Account_Email**" \
     -e "DOCKER_REGISTRY_PASSWORD=**Your_Account_Password**" \
-    blacklabelops/swarm-docker
+    blacklabelops/swarm-dockerhost
 ~~~~
 
 > Will login to quay.io with the specified credentials.

@@ -12,6 +12,7 @@ dependencies:
     - docker build -t="blacklabelops/swarm-aws" -f ./amazonws/Dockerfile amazonws/
     - docker build -t="blacklabelops/hashicorp-virtualbox" -f ./hashicorp-virtualbox/Dockerfile hashicorp-virtualbox/
     - docker build -t="blacklabelops/swarm-docker" -f ./docker/Dockerfile docker/
+    - docker build -t="blacklabelops/swarm-dockerhost" -f ./dockerhost/Dockerfile dockerhost/
 
 test:
   override:
@@ -26,3 +27,4 @@ test:
     - docker run blacklabelops/swarm-aws echo Hello World
     - docker run blacklabelops/hashicorp-virtualbox echo Hello World
     - docker run blacklabelops/swarm-docker echo Hello World
+    - docker run blacklabelops/swarm-dockerhost echo Hello World
