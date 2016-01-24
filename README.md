@@ -8,9 +8,21 @@ Perfectly working with the following container: [blacklabelops/jenkins](https://
 
 Builds the following swarm slaves:
 
-* Documentation: [blacklabelops/swarm-docker](https://github.com/blacklabelops/swarm/tree/master/docker)
+Jenkins Slaves with Docker:
+
+* Documentation: [blacklabelops/swarm-dockerhost](https://github.com/blacklabelops/swarm/tree/master/dockerhost)
+* Documentation: [blacklabelops/swarm-docker](https://github.com/blacklabelops/swarm/tree/master/docker) (Deprecated)
+
+Jenkins Slave with Virtualbox and Hashicorp Tools:
+
 * Documentation: [blacklabelops/hashicorp-virtualbox](https://github.com/blacklabelops/swarm/tree/master/hashicorp-virtualbox)
+
+Jenkins Slave with AmazonWS Command Line Interface:
+
 * Documentation: [blacklabelops/swarm-aws](https://github.com/blacklabelops/swarm/tree/master/amazonws)
+
+Java Slaves with Java, Maven and Gradle:
+
 * blacklabelops/swarm-jdk6
 * blacklabelops/swarm-jdk7
 * blacklabelops/swarm-jdk8
@@ -39,6 +51,10 @@ $ docker run -d --link jenkins:jenkins blacklabelops/swarm-jdk8
 
 > This will start 3 Java JDK build slaves with JDK6/7/8, each with 4 build processors! This setup will
 need no further setup as the swarm slave automatically connects to the linked jenkins.
+
+# How It Works
+
+All slaves are configured the same way! Check this project on how to configure jenkins swarm slaves: [blacklabelops/jenkins-swarm](https://github.com/blacklabelops/jenkins-swarm)
 
 # Java Swarm Slaves
 
