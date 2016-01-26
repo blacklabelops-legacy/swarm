@@ -4,6 +4,11 @@ MAINTAINER Steffen Bleul <sbl@blacklabelops.com>
 # Need root to build image
 USER root
 
+# install dev tools
+RUN yum install -y \
+    unzip && \
+    yum clean all && rm -rf /var/cache/yum/*
+
 # this envs are for maintaining java updates.
 ENV JAVA_MAJOR_VERSION=7
 ENV JAVA_UPDATE_VERSION=80
