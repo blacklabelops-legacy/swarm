@@ -1,6 +1,14 @@
-# Jenkins Slave Container with Docker
+# Jenkins Slave Container With Docker
 
-Check this project on how to configure a swarm slave: [blacklabelops/jenkins-swarm](https://github.com/blacklabelops/jenkins-swarm)
+Rule #1 Read the WARNING!
+
+Rule #2 Read the WARNING!
+
+Rule #3 Just read the WARNING!
+
+# WARNING
+
+Anyone who can execute docker commands on this slave will be able to execute root commands on your host! In worst case they can manipulate or just delete your machine! Only use this when you know what you do!
 
 # Make It Short!
 
@@ -24,6 +32,10 @@ $ docker run -d \
 ~~~~
 
 > CLI commands will be available.
+
+# How It Works
+
+Check this project on how to configure a swarm slave: [blacklabelops/jenkins-swarm](https://github.com/blacklabelops/jenkins-swarm)
 
 # Docker Login
 
