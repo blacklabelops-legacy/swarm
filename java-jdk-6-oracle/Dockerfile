@@ -4,6 +4,11 @@ MAINTAINER Steffen Bleul <sbl@blacklabelops.com>
 # Need root to build image
 USER root
 
+# install dev tools
+RUN yum install -y \
+    unzip && \
+    yum clean all && rm -rf /var/cache/yum/*
+
 # this envs are for maintaining java updates.
 ENV JAVA_MAJOR_VERSION=6
 ENV JAVA_UPDATE_VERSION=45
@@ -23,6 +28,15 @@ RUN wget --directory-prefix=/tmp \
     alternatives --remove java ${SWARM_JAVA_HOME}/bin/java && \
     alternatives --install /usr/bin/java java /opt/java/jdk${JAVA_VERSION}/bin/java 100 && \
     rm -rf /tmp/* && rm -rf /var/log/*
+
+# install gradle
+ENV GRADLE_VERSION=2.10
+ENV GRADLE_HOME=/usr/local/gradle
+RUN wget --directory-prefix=/tmp \
+    https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip && \
+    unzip /tmp/gradle-${GRADLE_VERSION}-bin.zip -d /usr/local && rm -rf /tmp/* && \
+    cd /usr/local &&  ln -s gradle-${GRADLE_VERSION} gradle && \
+    alternatives --install /usr/bin/gradle gradle /usr/local/gradle/bin/gradle 100
 
 # Switch back to user jenkins
 USER $CONTAINER_UID
