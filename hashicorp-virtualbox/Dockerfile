@@ -29,7 +29,7 @@ RUN export PACKER_VERSION=0.8.6 && \
     wget --directory-prefix=/tmp https://github.com/hashicorp/atlas-upload-cli/releases/download/v${ATLAS_CLI_VERSION}/atlas-upload-cli_${ATLAS_CLI_VERSION}_linux_amd64.tar.gz && \
     ls -All /tmp && \
     tar xzf /tmp/atlas-upload-cli_${ATLAS_CLI_VERSION}_linux_amd64.tar.gz -C /usr/local/bin && \
-    rm -f /tmp/*
+    rm -rf /tmp/*
 
 # install Virtualbox (Example version: 5.0.14_105127_el7-1)
 RUN export VIRTUALBOX_VERSION=latest && \
