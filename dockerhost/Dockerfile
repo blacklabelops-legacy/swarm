@@ -22,7 +22,7 @@ RUN yum install -y epel-release && \
     pip install --upgrade pip
 
 # install Docker cli
-ENV DOCKER_VERSION 1.9.1
+ENV DOCKER_VERSION 1.10.3
 
 RUN curl -fSL "https://get.docker.com/builds/Linux/x86_64/docker-$DOCKER_VERSION" -o /usr/local/bin/docker && \
     chmod +x /usr/local/bin/docker && \
