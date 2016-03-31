@@ -19,7 +19,7 @@ RUN wget --directory-prefix=/tmp \
     alternatives --install /usr/bin/mvn mvn /usr/local/maven/bin/mvn 100
 
 # install gradle
-ENV GRADLE_VERSION=2.11
+ENV GRADLE_VERSION=2.12
 ENV GRADLE_HOME=/usr/local/gradle
 RUN wget --directory-prefix=/tmp \
     https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip && \
