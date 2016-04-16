@@ -25,4 +25,4 @@ if [ -n "${DOCKER_REGISTRY_USER}" ]; then
   docker login --username=${docker_user} --email=${docker_user_email} --password=${docker_user_password} ${docker_remote_registry}
 fi
 
-/home/jenkins/docker-entrypoint.sh $@
+${SWARM_HOME}/docker-entrypoint.sh $@
