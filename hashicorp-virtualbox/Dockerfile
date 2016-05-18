@@ -12,6 +12,8 @@ RUN yum install -y \
       wget && \
     yum clean all && rm -rf /var/cache/yum/*
 
+ENV VAGRANT_HOME=/opt/vagrant
+
 # install Hashicorp tools
 RUN export PACKER_VERSION=0.10.0 && \
     export VAGRANT_VERSION=1.8.1 && \
@@ -29,6 +31,8 @@ RUN export PACKER_VERSION=0.10.0 && \
     wget --directory-prefix=/tmp https://github.com/hashicorp/atlas-upload-cli/releases/download/v${ATLAS_CLI_VERSION}/atlas-upload-cli_${ATLAS_CLI_VERSION}_linux_amd64.tar.gz && \
     ls -All /tmp && \
     tar xzf /tmp/atlas-upload-cli_${ATLAS_CLI_VERSION}_linux_amd64.tar.gz -C /usr/local/bin && \
+    mkdir -p $VAGRANT_HOME && \
+    chown -R ${CONTAINER_USER}:${CONTAINER_GROUP} $VAGRANT_HOME && \
     rm -rf /tmp/*
 
 # install Virtualbox (Example version: 5.0.14_105127_el7-1)
@@ -52,3 +56,4 @@ RUN export VIRTUALBOX_VERSION=latest && \
 
 # Switch back to user jenkins
 USER $CONTAINER_UID
+VOLUME $VAGRANT_HOME
