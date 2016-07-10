@@ -30,7 +30,7 @@ RUN wget --directory-prefix=/tmp \
     rm -rf /tmp/* && rm -rf /var/log/*
 
 # install gradle
-ENV GRADLE_VERSION=2.12
+ENV GRADLE_VERSION=2.14
 ENV GRADLE_HOME=/usr/local/gradle
 RUN wget --directory-prefix=/tmp \
     https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip && \
