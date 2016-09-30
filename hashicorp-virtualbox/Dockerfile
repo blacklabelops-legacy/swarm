@@ -15,10 +15,10 @@ RUN yum install -y \
 ENV VAGRANT_HOME=/opt/vagrant
 
 # install Hashicorp tools
-RUN export PACKER_VERSION=0.10.0 && \
-    export VAGRANT_VERSION=1.8.1 && \
+RUN export PACKER_VERSION=0.10.2 && \
+    export VAGRANT_VERSION=1.8.6 && \
     export OTTO_VERSION=0.2.0 && \
-    export TERRAFORM_VERSION=0.6.14 && \
+    export TERRAFORM_VERSION=0.7.4 && \
     export ATLAS_CLI_VERSION=0.2.0 && \
     wget --directory-prefix=/tmp https://releases.hashicorp.com/packer/${PACKER_VERSION}/packer_${PACKER_VERSION}_linux_amd64.zip && \
     unzip /tmp/packer_${PACKER_VERSION}_linux_amd64.zip -d /usr/local/bin && \

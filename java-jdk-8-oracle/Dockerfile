@@ -11,8 +11,8 @@ RUN yum install -y \
 
 # this envs are for maintaining java updates.
 ENV JAVA_MAJOR_VERSION=8
-ENV JAVA_UPDATE_VERSION=77
-ENV JAVA_BUILD_NUMER=03
+ENV JAVA_UPDATE_VERSION=102
+ENV JAVA_BUILD_NUMER=14
 # install java
 ENV JAVA_VERSION=1.${JAVA_MAJOR_VERSION}.0_${JAVA_UPDATE_VERSION}
 ENV JAVA_TARBALL=jdk-${JAVA_MAJOR_VERSION}u${JAVA_UPDATE_VERSION}-linux-x64.tar.gz
@@ -37,7 +37,7 @@ RUN wget --directory-prefix=/tmp \
     alternatives --install /usr/bin/mvn mvn /usr/local/maven/bin/mvn 100
 
 # install gradle
-ENV GRADLE_VERSION=2.14
+ENV GRADLE_VERSION=3.1
 ENV GRADLE_HOME=/usr/local/gradle
 RUN wget --directory-prefix=/tmp \
     https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip && \

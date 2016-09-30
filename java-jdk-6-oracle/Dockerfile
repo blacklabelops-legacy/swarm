@@ -29,8 +29,17 @@ RUN wget --directory-prefix=/tmp \
     alternatives --install /usr/bin/java java /opt/java/jdk${JAVA_VERSION}/bin/java 100 && \
     rm -rf /tmp/* && rm -rf /var/log/*
 
+# install maven
+ENV MAVEN_VERSION=3.2.5
+ENV M2_HOME=/usr/local/maven
+RUN wget --directory-prefix=/tmp \
+    http://mirror.synyx.de/apache/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz && \
+    tar xzf /tmp/apache-maven-${MAVEN_VERSION}-bin.tar.gz -C /usr/local && rm -rf /tmp/* && \
+    cd /usr/local &&  ln -s apache-maven-${MAVEN_VERSION} maven && \
+    alternatives --install /usr/bin/mvn mvn /usr/local/maven/bin/mvn 100
+
 # install gradle
-ENV GRADLE_VERSION=2.14
+ENV GRADLE_VERSION=3.1
 ENV GRADLE_HOME=/usr/local/gradle
 RUN wget --directory-prefix=/tmp \
     https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip && \

@@ -22,7 +22,7 @@ RUN yum install -y epel-release && \
     pip install --upgrade pip
 
 # install Docker cli
-ENV DOCKER_VERSION 1.11.1
+ENV DOCKER_VERSION 1.12.1
 
 RUN curl -fSL "https://get.docker.com/builds/Linux/x86_64/docker-$DOCKER_VERSION.tgz" -o /tmp/docker.tgz && \
     tar -xzvf /tmp/docker.tgz -C /tmp && \
