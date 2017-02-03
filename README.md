@@ -1,7 +1,5 @@
 # Jenkins Swarm Slaves.
 
-Leave a message and ask questions on Hipchat: [blacklabelops/hipchat](https://www.hipchat.com/geogBFvEM)
-
 Good news! These containers have rooted out root! Safely running inside userspace!
 
 Perfectly working with the following container: [blacklabelops/jenkins](https://github.com/blacklabelops/jenkins)
@@ -83,6 +81,10 @@ First install:
 
 * [Vagrant](https://www.vagrantup.com/)
 * [Virtualbox](https://www.virtualbox.org/)
+
+# Support
+
+Leave a message and ask questions on Hipchat: [blacklabelops/hipchat](http://support.blacklabelops.com)
 
 # References
 
