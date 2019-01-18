@@ -82,10 +82,6 @@ First install:
 * [Vagrant](https://www.vagrantup.com/)
 * [Virtualbox](https://www.virtualbox.org/)
 
-# Support
-
-Leave a message and ask questions on Hipchat: [blacklabelops/hipchat](http://support.blacklabelops.com)
-
 # References
 
 * [Jenkins Homepage](http://jenkins-ci.org/)
